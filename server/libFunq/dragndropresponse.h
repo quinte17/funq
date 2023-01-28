@@ -35,7 +35,7 @@ knowledge of the CeCILL v2.1 license and that you accept its terms.
 #ifndef DRAGNDROPRESPONSE_H
 #define DRAGNDROPRESPONSE_H
 
-#include "delayedresponse.h"
+#include "protocole/delayedresponse.h"
 
 #include <QWidget>
 

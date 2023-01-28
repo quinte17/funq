@@ -35,7 +35,7 @@ knowledge of the CeCILL v2.1 license and that you accept its terms.
 #ifndef SHORTCUT_RESPONSE_H
 #define SHORTCUT_RESPONSE_H
 
-#include "delayedresponse.h"
+#include "protocole/delayedresponse.h"
 
 #include <QKeySequence>
 #include <QWidget>

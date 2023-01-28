@@ -35,7 +35,7 @@ knowledge of the CeCILL v2.1 license and that you accept its terms.
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "jsonclient.h"
+#include "protocole/jsonclient.h"
 
 #include <QModelIndex>
 #include <QWidget>
