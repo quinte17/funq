@@ -1,6 +1,8 @@
 The *funq* project
 ==================
 
+**WORK IN PROGRESS**
+
 **funq** is a tool to write FUNctional tests for Qt applications, both Widgets
 and QML, using python.
 
@@ -15,27 +17,6 @@ still use the sources, or link with funq libraries for a personal use
 
 Please feel free to contribute to this project by creating github issues,
 pull requests, or simply staring the project! It will be greatly appreciated.
-
-Documentation:
-
-.. image:: https://readthedocs.org/projects/funq/badge/?version=latest
-    :target: http://funq.readthedocs.org
-
-CI build status:
-
-.. image:: https://travis-ci.org/parkouss/funq.svg?branch=master
-    :target: https://travis-ci.org/parkouss/funq
-
-.. image:: https://ci.appveyor.com/api/projects/status/github/parkouss/funq?branch=master&svg=true
-    :target: https://ci.appveyor.com/project/parkouss/funq
-
-Get funq on PyPi (server and client packages):
-
-.. image:: https://img.shields.io/pypi/v/funq-server.svg
-    :target: https://pypi.python.org/pypi/funq-server/
-
-.. image:: https://img.shields.io/pypi/v/funq.svg
-    :target: https://pypi.python.org/pypi/funq/
 
 Examples
 ========
@@ -55,41 +36,14 @@ Then you can call from python like this::
 Installation
 ============
 
-You can easily install it from PyPi with pip or setuptools::
+This is gonna change.
 
-  pip install funq-server
-  pip install funq
+libFunq: to build the libFunq.so you need cmake::
 
-Note that funq-server will need qmake to build the C++ part of the server,
-and this installation will be Qt-compatible with the same Qt version of
-qmake.
-
-To specify the path to qmake, you can define the **FUNQ_QMAKE_PATH**
-environment variable: ::
-
-  FUNQ_QMAKE_PATH=/usr/bin/qmake-qt5 pip install funq-server
-
-Also, if you're not using virtualenv you may have to take root
-privileges to install **funq**.
-
-You can instead get the sources and install it::
-
-  cd funq/
-  pip install server
-  pip install client
-
-For contributors, you may want to use **pip install -e** instead of
-**pip install** commands. Note that **virtualenv** is highly recommended,
-so you can easily manage multiple python2/python3/Qt4/Qt5 environments.
-
-When installing funq-server from sources, you can create a server/setup.cfg
-file to specify the qmake path::
-
-  [build_libfunq]
-  qmake_path = /usr/bin/qmake-qt5
-
-Before running the *pip install* command, or use the **FUNQ_QMAKE_PATH**
-environment variable.
+  mkdir server/libFunq/build
+  cd server/libFunq/build
+  cmake ../
+  make
 
 How does *funq* works
 =====================
@@ -110,13 +64,7 @@ How does *funq* works
 Known restrictions
 ==================
 
-Funq currently works with python >= 2.7 (it is fully compatible with python 3),
-Qt4 and Qt5 on GNU/Linux and macOS.
-
-It also works on Windows, but only with Python 2.7 out of the box. With
-Python 3, the tested application has to be compiled with libFunq because the
-package *winappdbg* (needed for the DLL injection) is not available for Python 3
-(any help welcome!).
+Main focus is Linux atm.
 
 Documentation
 =============
