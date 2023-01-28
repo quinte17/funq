@@ -32,12 +32,7 @@ The fact that you are presently reading this means that you have had
 knowledge of the CeCILL v2.1 license and that you accept its terms.
 */
 
-#include <QtCore>
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 class SimpleDialog : public QDialog {
     Q_OBJECT
