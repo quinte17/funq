@@ -134,7 +134,7 @@ QString item_model_path(QAbstractItemModel * model, const QModelIndex & item) {
     }
     // reverse list
     for (int k = 0, s = path.size(), max = (s / 2); k < max; k++)
-        path.swap(k, s - (1 + k));
+        path.swapItemsAt(k, s - (1 + k));
     return path.join("/");
 }
 
