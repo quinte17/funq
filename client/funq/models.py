@@ -64,7 +64,7 @@ class TreeItem(object):  # pylint: disable=R0903
         """
         self = cls()
         self.client = client
-        for k, v in data.iteritems():
+        for k, v in data.items():
             if k != 'items':
                 setattr(self, k, v)
         self.items = [cls.create(client, d) for d in data.get('items', [])]
@@ -161,7 +161,7 @@ class Object(object):
                 break
 
         self = cls()
-        for k, v in data.iteritems():
+        for k, v in data.items():
             setattr(self, k, v)
         setattr(self, 'client', client)
         return self
@@ -209,7 +209,7 @@ class Object(object):
         """
         def check_props():
             properties = self.properties()
-            for k, v in props.iteritems():
+            for k, v in props.items():
                 if properties.get(k) != v:
                     return False
             return True
