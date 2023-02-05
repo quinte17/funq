@@ -45,6 +45,13 @@ libFunq: to build the libFunq.so you need cmake::
   cmake ../
   make
 
+tests: to build the helper programm::
+
+  mkdir tests-functionnal/funq-test-app/build
+  cd tests-functionnal/funq-test-app/build
+  cmake ../
+  make
+
 How does *funq* works
 =====================
 
