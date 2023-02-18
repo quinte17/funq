@@ -23,14 +23,20 @@ Examples
 
 Run your application like::
 
-  funq --host 0.0.0.0 --port 9000 YourApp
+  LD_PRELOAD=PATHTO/libFunq.so ./funq-test-app
 
 Then you can call from python like this::
 
   from funq.client import FunqClient
 
-  funq = FunqClient("192.168.0.17", 9000)
-  funq.widget('btnTest').click()
+  btn = cl.widget(path='mainWindow::QWidget::click')
+  btn.click()
+
+  btn = cl.widget(path='mainWindow::ClickDialog::QPushButton')
+  btn.click()
+
+  if cl.widget(path='mainWindow::statusBar::QLabel').properties()['text'] == 'clicked !':
+      print("we did it!")
 
 
 Installation
@@ -38,12 +44,30 @@ Installation
 
 This is gonna change.
 
+Funq consists of two parts. libFunq.so is the preloaded library which includes the funq-server the client connects to.
+The python package funq is the client which connects to a funq-server.
+In big environments it is not always easy to start the gui application and find the proper port. One idea
+could be, to patch your local copy of qt to magically load the lib and find an unused port. Then create
+a file named with the pid of the process and write the corresponding port into it.
+If you have a setup like this you could provide an automagic connect for your tests if you can map the
+process name with the corresponding pid and port.
+
+The libFunq.so should not be part of the python package, because there is no guarantee to have python
+on the target and you have much more control for the used compiler flags and target architecture.
+
 libFunq: to build the libFunq.so you need cmake::
 
   mkdir server/libFunq/build
   cd server/libFunq/build
   cmake ../
   make
+
+python funq client::
+
+  cp -ar client/funq PATHON/site-packages
+
+or maybe it is possible to provide some pip package in the future. Or if you have artifactory you could provide
+yourself the python package.
 
 tests: to build the helper programm::
 
